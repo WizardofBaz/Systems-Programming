@@ -1,5 +1,5 @@
 all: test
-
+//this file should be good i dont think futher changes will be needed
 test: memgrind.c
   gcc -Wall -Werror mymalloc.h
   gcc -Wall -Werror mymalloc.c
