@@ -41,12 +41,14 @@ double testB()
 
   void* pointers[150];
   int index=0;
+  int temp=0;
+	
   for(index=0;index<150;++index)
     {
 
-      if(index % 50 == 0)
+      if(index % 50 == 0 && (index !=0))
 	{
-	  int temp=0;
+	   temp=0;
 	  while(temp<50)
 	    {
 	      free(pointers[temp]);
