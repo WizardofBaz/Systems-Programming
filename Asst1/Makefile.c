@@ -6,5 +6,5 @@ gcc -Wall -Werror mymalloc.c
 gcc -Wall -Werror -o memgrind
 
 clean:
-rm -rf memgrind
+  rm -rf memgrind
 
