@@ -8,10 +8,6 @@
 #include<time.h>
 
 
-struct timer {
-	int t1,t2;
-};
-
 double testA(){
 clock_t start,end;
 double returnTime;
@@ -20,24 +16,16 @@ start = clock();
 
 int p = 0;
 double time_used;
-//struct timer t1,t2;
+
 void* arr[5000];
-//gettimeofday(&
-//gettimeofday(t1,NULL);
+
 while (p < 150){
 	arr[p] = malloc(1);
 	free(arr[p]);
 	p++;
-//	printf("malloc: %p\n", &arr[p]);
 
 }
-	
 
-//	printf("free: \n");
-
-//	gettimeofday(t2,NULL);
-//	time_used = (double) (t2.t_usec- t1.t_usec)/1000000 + (double) (t2.t_sec-t1.t_sec);
-//	trying to get time
 	end = clock();
 	returnTime = ((double) (end - start))/ CLOCKS_PER_SEC;
 
@@ -124,17 +112,22 @@ return time_used;
 */
 int main(){
 
-double A,B,C,D,E,F;
-
-int g;
+double A=0;
+double B=0;
+double C=0;
+double D=0;
+double E=0;
+double F=0; 
+	
+int g=0;
 for(g = 0; g < 100; g++){
 
-	A = testA();
-//	B += testB() = 0;
-//	C += testC() = 0;
-//	D += testD() = 0;
-//	E += testE() = 0;
-//	F += testF() = 0;
+	A += testA();
+//	B += testB()  ;
+//	C += testC()  ;
+//	D += testD()  ;
+//	E += testE()  ;
+//	F += testF()  ;
 
 }
 	printf("Time for A: %f in seconds \n",A);
@@ -143,7 +136,7 @@ for(g = 0; g < 100; g++){
 //	printf("Time for D: %f in seconds \n" , D);
 //	printf("Time for E: %f in seconds \n", E);
 //	printf("Time for F: %f in seconds \n", F);
-	
+
 
 	return 0;
 
