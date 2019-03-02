@@ -112,6 +112,52 @@ return time_used;
 
 }
 */
+
+double testD(){
+clock_t start,end;
+double totaltime = 0;
+start = clock();
+
+int i,randB,randS,malC,size,freeC,randI;  //random bit, random size,malloc counter,size used,free counter,random index
+void* arr[6500];
+
+for(malC = 0; malC < 150; ++malC){
+        randB = (rand() %2);
+        if(randB || size == 0){
+                randS = ((rand() % 64) + 1);
+                arr[size] = malloc (size);
+                size++;
+
+}else {
+        randI = rand() % size;
+        if(randI == (size -1)){
+                free(arr[randI]);
+                arr[randI] = 0;
+                freeC++;
+
+
+
+        } else {
+                free(arr[randI]);
+                arr[randI] = arr[size - 1];
+                arr[size - 1] = 0;
+                freeC++;
+                size--;
+        }
+}
+}
+        i = size -1;
+        while (i >= 0){
+                free(arr[i]);
+                freeC++;
+                --i;
+        }
+        end = clock();
+        totaltime = ((double) (end-start));
+        return totaltime;
+}		
+
+
 int main(){
 
 double A=0;
@@ -124,18 +170,18 @@ double F=0;
 int g=0;
 for(g = 0; g < 100; g++){
 
-	A += testA();
-//	B += testB()  ;
-//	C += testC()  ;
-//	D += testD()  ;
+	A = testA();
+	B = testB();
+//	C += testC();
+	D = testD();
 //	E += testE()  ;
 //	F += testF()  ;
 
 }
 	printf("Time for A: %f in seconds \n",A);
-//	printf("Time for B: %f in seconds \n", B);
+	printf("Time for B: %f in seconds \n", B);
 //	printf("Time for C: %f in seconds \n" , C);
-//	printf("Time for D: %f in seconds \n" , D);
+	printf("Time for D: %f in seconds \n" , D);
 //	printf("Time for E: %f in seconds \n", E);
 //	printf("Time for F: %f in seconds \n", F);
 
