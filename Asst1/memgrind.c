@@ -198,6 +198,11 @@ double testE()
 }
 double testF()
 {
+	
+	// this last test will test to make sure that mymalloc will not
+	//incorrectly say that memory is out of space when it isn;t it will also take a long time 
+	// to run i am sure
+	
 	clock_t start,end;
 	start= clock();
 	double totaltime =0;
@@ -208,6 +213,7 @@ double testF()
 	totaltime= ((double) (end - start))/CLOCKS_PER_SEC;
 	return totaltime;
 }
+	
 
 int main(){
 
