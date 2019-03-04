@@ -1,1 +1,14 @@
 // i didnt start this yet will soon
+
+/*
+workload testE():
+
+we wanted to include this test load because the other test focus only on the errors that may arrise with a normal malloc call.
+however because we wrote this we wanted to make sure our code didn't inadvertently change data or as c so wonderfully puts it segmentation fault.
+
+
+workload testF():
+
+testF trys to test one error not really focused in the other test casese which is memory overflow. we wanted to fill memory then keep freeing one byte then mallocing one just to make sure no errors would be thrown and if there are we would have to go back and see why.
+
+*/
