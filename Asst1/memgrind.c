@@ -156,7 +156,58 @@ for(malC = 0; malC < 150; ++malC){
         totaltime = ((double) (end-start));
         return totaltime;
 }		
-
+double testE()
+{
+	// e keep focusing onerrors that might be thrown in this test we
+	// will make sure that the data that we malloced out isnt edited
+	// and if it is an error will be thrown
+	
+	clock_t start,end;
+	start= clock();
+	double totaltime =0;
+	int* temp[100];
+	int i=0;
+	while(i<100)
+	{
+		temp[i]= (int*) malloc(sizeof(int));
+		*temp[i]=i;
+		++i;
+	}
+	
+	i=0;
+	while(i<100)
+	{
+		if(*temp[i] != i)
+		{
+			printf("ERROR: data altered");
+		}
+		++i;
+	}
+	i=0;
+	while(i<100)
+	{
+		free(temp[i])
+		++i;
+	}
+	
+	
+	
+	end = clock;
+	totaltime= ((double) (end - start))/CLOCKS_PER_SEC;
+	return totaltime;
+}
+double testF()
+{
+	clock_t start,end;
+	start= clock();
+	double totaltime =0;
+	
+	
+	
+	end = clock;
+	totaltime= ((double) (end - start))/CLOCKS_PER_SEC;
+	return totaltime;
+}
 
 int main(){
 
