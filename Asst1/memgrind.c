@@ -158,7 +158,7 @@ for(malC = 0; malC < 150; ++malC){
 }		
 double testE()
 {
-	// e keep focusing onerrors that might be thrown in this test we
+	// we keep focusing onerrors that might be thrown in this test we
 	// will make sure that the data that we malloced out isnt edited
 	// and if it is an error will be thrown
 	
