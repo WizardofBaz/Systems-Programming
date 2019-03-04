@@ -206,7 +206,28 @@ double testF()
 	clock_t start,end;
 	start= clock();
 	double totaltime =0;
-	
+	int i=0;
+	char* temp[1024];
+	while(i<1024)
+	{
+		temp[i]= (char) malloc(1);
+		*temp[i]=i;
+		++i;
+	}
+	//now mem should be full so free once 4096 times then remalloc then free all
+	i=0
+	while(i<1024)
+	{
+		free(temp[i]);
+		*temp[i]=(char) malloc(1);
+		++i;
+	}
+	//free all
+	i=0;
+	while(i<4096)
+	{
+		free(temp[i]);
+	}
 	
 	
 	end = clock;
@@ -231,16 +252,16 @@ for(g = 0; g < 100; g++){
 	B = testB();
 //	C += testC();
 	D = testD();
-//	E += testE()  ;
-//	F += testF()  ;
+	E += testE()  ;
+	F += testF()  ;
 
 }
-	printf("Time for A: %f in seconds \n",A);
-	printf("Time for B: %f in seconds \n", B);
-//	printf("Time for C: %f in seconds \n" , C);
-	printf("Time for D: %f in seconds \n" , D);
-//	printf("Time for E: %f in seconds \n", E);
-//	printf("Time for F: %f in seconds \n", F);
+	printf("Time for A: %f in seconds \n",(A/100));
+	printf("Time for B: %f in seconds \n", (B/100));
+//	printf("Time for C: %f in seconds \n" , (C/100));
+	printf("Time for D: %f in seconds \n" , (D/100));
+	printf("Time for E: %f in seconds \n", (E/100));
+	printf("Time for F: %f in seconds \n", (F/100));
 
 
 	return 0;
