@@ -157,7 +157,7 @@ for(malC = 0; malC < 150; ++malC){
                 --i;
         }
         end = clock();
-        totaltime = ((double) (end-start));
+        totaltime = ((double) (end-start))/CLOCKS_PER_SEC;
         return totaltime;
 }
 		
