@@ -241,7 +241,7 @@ double testF()
 	totaltime= ((double) (end - start))/CLOCKS_PER_SEC;
 	return totaltime;
 }
-*/	
+
 
 int main(){
 
