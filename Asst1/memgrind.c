@@ -74,55 +74,45 @@ double testB()
   return totaltime;
 }//end of test B
 
-/*
 double testC(){
-int c = 0;
-double time_used = 0;
-struct timeval t1,t2;
-void* arr[5000];
-int randomizer, freed, randomB,size,malC,rand_ind;//random size, free counter, random bit, size occupied, malloc counter, rand index
 
-gettimeofday(t1,NULL);
-int z;
-for(malC=0; malC < 150; malC++){
-	randomB = (rand() % 2);
-i	if(randomB || size == 0) {
-		size = ((rand() % 64) + 1);
-		arr[size] = malloc(randomizer);
-		size++;
-} else {
-	rand_ind = rand() % size;
-	if(rand_ind == (size -1)){
-		free(arr[rand_ind]);
-		arr[rand_ind] = 0;
-		freed++;
-		printf("freed\n");
-}else {
-	free(arr[rand_ind]);
-	arr[rand_ind] = arr[size-1];
-	arr[size -1] = 0;
-	freed++;
-	printf("freed\n");
+clock_t start,end;
+double time = 0;
+start = clock();
 
-} 
+int mallocI,freeI;
+int p = 0;
+void* arr[50];
 
-size--;
+arr[0] = malloc(1);
+
+while(1){
+        int random = rand()%2;
+        if(random ==0){
+                if(mallocI<49){
+                        mallocI++;
+                        arr[mallocI] = malloc(1);
+
+        }
 }
-	for(c = size -1 ; c >= 0; c--){
-	free(arr[c]);
-	freed++;
-	printf("freed\n");
-}
-	gettimeofday(&t2,NULL);
-//	time_used = (double)(t2.tv_usec - t1.tv_usec)/1000000 + (double) (t2.tv_usec-t1.tv_usec); 
+        if(random == 1){
+                if(freeI<mallocI){
+                        freeI++;
+                        free(arr[freeI]);
+                	}
+                }
+                if((mallocI == 49)&&(freeI == 49)){
+                        return;
 
-	printf("mal count %d, free: %d\n", malC,free);
-	printf(" in D time_used %f \n", time_used*1000000);
-}
-return time_used;
+`		}
 
+        }
+        end = clock();
+        time = ((double)(end - start))/CLOCKS_PER_SEC;
 
+        return time;
 }
+
 
 double testD(){
 clock_t start,end;
