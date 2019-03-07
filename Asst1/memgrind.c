@@ -84,6 +84,9 @@ int mallocI,freeI;
 int p = 0;
 void* arr[50];
 
+mallocI = 0;
+freeI = 0;
+
 arr[0] = malloc(1);
 
 while(1){
@@ -99,12 +102,11 @@ while(1){
                 if(freeI<mallocI){
                         freeI++;
                         free(arr[freeI]);
-                	}
+                }
                 }
                 if((mallocI == 49)&&(freeI == 49)){
                         return;
-
-`		}
+        }
 
         }
         end = clock();
@@ -112,7 +114,6 @@ while(1){
 
         return time;
 }
-
 
 double testD(){
 clock_t start,end;
