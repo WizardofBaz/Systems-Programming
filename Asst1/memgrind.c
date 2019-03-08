@@ -206,37 +206,13 @@ double testE()
 double testF()
 {
 	
-	// this last test will test to make sure that mymalloc will not
-	//incorrectly say that memory is out of space when it isn;t it will also take a long time 
-	// to run i am sure
+	// this last test will test to make sure that mymalloc will  assure you can mlalloc more memory then needed
 	
 	clock_t start,end;
 	start= clock();
 	double totaltime =0;
-	int i=0;
-	char* temp[1024];
-	while(i<1024)
-	{
-		temp[i]= (char*) malloc(4);
-	
-		++i;
-	}
+	void * temp=malloc(5000);
 	//now mem should be full so free once 4096 times then remalloc then free all
-	i=0;
-	while(i<1024)
-	{
-		free(temp[i]);
-		temp[i]=(char*) malloc(4);
-		
-		++i;
-	}
-	//free all
-	i=0;
-	while(i<4096)
-	{
-		free(temp[i]);
-	}
-	
 	
 	end = clock();
 	totaltime= ((double) (end - start))/CLOCKS_PER_SEC;
