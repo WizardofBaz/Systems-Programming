@@ -9,6 +9,6 @@ however because we wrote this we wanted to make sure our code didn't inadvertent
 
 workload testF():
 
-testF trys to test one error not really focused in the other test casese which is memory overflow. we wanted to fill memory then keep freeing one byte then mallocing one just to make sure no errors would be thrown and if there are we would have to go back and see why.
+testF trys to test one error not really focused in the other test casese which is memory overflow. 
 
 */
