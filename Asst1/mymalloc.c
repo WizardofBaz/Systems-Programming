@@ -71,7 +71,7 @@ void* mymalloc( int size,char* file,int line)
 	//can never be too carefull
 	if (size>4091)
 	{
-	printf("\nmemory overflow\n");
+	printf("\nmemory overflow file: %s at line: %d\n",file,line);
 	return NULL;
 	}
 	
