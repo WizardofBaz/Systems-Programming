@@ -323,7 +323,7 @@ int main(){
 	printf("Time for C: %f mean time (microseconds): %f  \n",(C),(C/1000));
 	printf("Time for D: %f mean time (microseconds): %f  \n",(D),(D/1000));
 	printf("Time for E: %f mean time (microseconds): %f  \n",(E),(E/1000));
-	printf("Time for F: %f mean time (microseconds): %f  \n",(F),(F/-100000000));
+	printf("Time for F: %f mean time (microseconds): %f  \n",(-F),(F/-100000000));
 
 	end= clock();
 	double timetaken= (double)(end-start)/((double)(CLOCKS_PER_SEC));
