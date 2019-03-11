@@ -1,4 +1,3 @@
-// i didnt start this yet will soon
 
 /*
 workload testE():
