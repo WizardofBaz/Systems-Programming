@@ -17,6 +17,8 @@ struct _node
 	int num;
 	char word[50];
         struct _node* link;
+	struct _node* left;
+	struct _node* right;
 }node;
 
 int compareTo(node* temp1, node* temp2)
