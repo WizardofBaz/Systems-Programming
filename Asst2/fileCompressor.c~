@@ -514,6 +514,219 @@ void buildCodebook(char* file)
  
 
 }
+void token(char** files)
+{
+  int numoffiles=0; 
+  char *over1="\\t";
+  char *over2="\\n";
+  char *over3="\\s";
+  char *over4="\\a";
+  char *over5="\\b";
+  char *over6="\\f";
+  char *over7="\\r";
+  char *over8="\\v";
+  
+ // char* textfile="compresser.txt";
+  
+  FILE* fp= fopen(files[numoffiles],"r");
+  
+  char tempchar;
+  char string[50];
+  int place =0;
+  string[0]='\0';
+
+  while(files[numoffiles] != NULL && fp != NULL)
+    {
+      string[0]='\0';
+      place=0;
+      while((tempchar= fgetc(fp))!=EOF)
+     {
+       
+       if(isDelim(tempchar)>0)
+	 {
+	   
+	   string[place]='\0';
+	   place=0;
+	       
+	   if(string[0]!='\0')
+	     {
+	       // do nothing
+		string[0]='\0';
+	     }
+	   else
+	     {
+	       if(string[0]=='\0')
+		 {
+
+		 }
+	       else
+		 {
+	       node* inserting1= (node*)malloc(sizeof(node));
+	       inserting1->num=1;
+	       strcpy(inserting1->word,string);
+	       inserting1->link=NULL;
+	       insert(inserting1);
+	       string[0]='\0';
+		 }
+	      }
+	     
+
+	   // and you need to tokenize the delimner
+	   if((tempchar==' '))
+	     {
+	       
+	        node* insertin= (node*)malloc(sizeof(node));
+	       insertin->num=1;
+	        
+		strcpy(insertin->word,over3);
+	       insertin->link=NULL;
+	       insert(insertin);
+		 
+	     }
+	   else{
+	     if((tempchar=='\t'))
+		  
+		 {
+		    node* inserting= (node*)malloc(sizeof(node));
+		    inserting->num=1;
+		    strcpy(inserting->word,over1);
+		    inserting->link=NULL;
+		    insert(inserting);
+		 }
+		  
+	     else{
+	        //printf("do we get here\n");
+	        if((tempchar=='\n'))
+		 {
+		  
+		      //printf("do we get here LASTLY\n");
+		     node* insertig= (node*)malloc(sizeof(node));
+		      insertig->num=1;
+	        	strcpy(insertig->word,over2);
+	        	insertig->link=NULL;
+			//	printf("inserting\n");
+			insert(insertig);
+		}
+		   else
+		     {
+		       if((tempchar=='\a'))
+			 {
+			   
+		     
+			       node* inserting= (node*)malloc(sizeof(node));
+			       inserting->num=1;
+			       
+			       strcpy(inserting->word,over4);
+			       inserting->link=NULL;
+			       insert(inserting);
+			     
+			 }
+		       else
+		       {
+		       if((tempchar=='\b'))
+			 {
+			   
+		     
+			       node* inserting= (node*)malloc(sizeof(node));
+			       inserting->num=1;
+			       
+			       strcpy(inserting->word,over5);
+			       inserting->link=NULL;
+			       insert(inserting);
+			     
+			 }
+		        else
+		       {
+		       if((tempchar=='\f'))
+			 {
+			   
+		     
+			       node* inserting= (node*)malloc(sizeof(node));
+			       inserting->num=1;
+			       
+			       strcpy(inserting->word,over6);
+			       inserting->link=NULL;
+			       insert(inserting);
+			     
+			 }
+		        else
+		       {
+		       if((tempchar=='\r'))
+			 {
+			   
+		     
+			       node* inserting= (node*)malloc(sizeof(node));
+			       inserting->num=1;
+			       
+			       strcpy(inserting->word,over7);
+			       inserting->link=NULL;
+			       insert(inserting);
+			     
+			 }
+		        else
+		       {
+		       if((tempchar=='\v'))
+			 {
+			   
+		     
+			       node* inserting= (node*)malloc(sizeof(node));
+			       inserting->num=1;
+			       
+			       strcpy(inserting->word,over8);
+			       inserting->link=NULL;
+			       insert(inserting);
+			     }
+			 }
+		     }
+		     }
+		     }
+		     }
+		     }
+		 }
+	    }
+    
+       else
+	 {
+	   // not a delimner
+	   string[place]=tempchar;
+	   place++;
+	 }
+     }
+       // }
+	   
+    }//end of a file
+      //printf("after file 1\n");
+      fclose(fp);
+      ++numoffiles;
+      if(files[numoffiles]!=NULL)
+	{
+	  fp= fopen(files[numoffiles],O_RDONLY);
+	}
+      else
+	{
+	  fp=NULL;
+	}
+	
+      //end of reading files
+
+    //now start writing
+    FILE* comp = fopen("compressor.txt","w");
+     node* popping;
+     while(head != NULL)
+    {
+      popping= pop();
+      //  if(strcmp(popping->word,"")!=0)
+      //	{
+   
+	     fprintf(comp,"%s\n",popping->word);
+	  //	}
+      free(popping);
+    }
+ 
+  fclose(comp);
+}
+
+
 void compress( char* file, char* book)
 {
   // what ever your compression agoritim is
