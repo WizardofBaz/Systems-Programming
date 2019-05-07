@@ -1,0 +1,26 @@
+1.	./WTFserver 8008 128.6.13.229
+	./WTFclient configure 8008 128.6.13.229
+	*configure file made
+	*client prints [configure] done
+
+2.	*Did not add any file
+	./WTFclient update tester
+	*"no such project" printed in client
+
+3.	./WTFclient commit tester
+	"commit recorded"
+
+4.	*Nothing never added to manifest	
+	./WTFclient commit nothing
+	client prints "server could not connect: Can't send message
+
+5.	./WTFclient create test
+	client prints "test created"
+
+6.	./WTFclient create run
+	Client prints "server could not connect"
+
+7.	./WTFclient destroy test
+	client prints "test removed"	
+
+
